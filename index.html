@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Actuarial Consultant & Builder</title>
-  <meta name="description" content="Actuarial consultant working towards qualification. I build models, dashboards, and websites. Hiking + board games on the side." />
+  <title>Khubaib Qureshi — Actuarial Consultant</title>
+  <meta name="description" content="Actuarial consultant working towards qualification. I build actuarial models, analytics, and practical web tools." />
   <meta name="theme-color" content="#0b1220" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Your Name — Actuarial Consultant & Builder" />
-  <meta property="og:description" content="Actuarial consultant working towards qualification. Models, dashboards, websites. Hiking + board games." />
+  <meta property="og:title" content="Khubaib Qureshi — Actuarial Consultant" />
+  <meta property="og:description" content="Actuarial consultant working towards qualification. Models, analytics, and practical web tools." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/og-image.png" />
-  <meta property="og:url" content="https://YOURUSERNAME.github.io/" />
+  <meta property="og:url" content="https://khubaib2109.github.io/about-me/" />
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
@@ -26,8 +26,8 @@
       <a class="brand" href="#top" aria-label="Home">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">
-          <span class="brand-name">Your Name</span>
-          <span class="brand-sub">Actuarial Consultant • Web Builder</span>
+          <span class="brand-name">Khubaib Qureshi</span>
+          <span class="brand-sub">Actuarial Consultant</span>
         </span>
       </a>
 
@@ -40,10 +40,7 @@
 
       <div class="header-cta">
         <button class="btn btn-ghost" id="themeToggle" type="button" aria-label="Toggle theme">
-          <span class="icon" aria-hidden="true">
-            <!-- moon/sun icon is swapped by JS (text fallback still ok) -->
-            ☾
-          </span>
+          <span id="themeIcon" aria-hidden="true">☾</span>
         </button>
         <a class="btn btn-primary" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
       </div>
@@ -55,36 +52,35 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="pill">
-            <span class="dot" aria-hidden="true"></span>
-            Working towards becoming an actuary • Building useful things
+            Actuarial • Analytics • Web
           </p>
 
           <h1>
-            Actuarial consultant who builds
-            <span class="accent">data-driven products</span>
-            and clean websites.
+            Actuarial consultant building
+            <span class="accent">models</span>, <span class="accent">analytics</span>, and
+            <span class="accent">practical tools</span>.
           </h1>
 
           <p class="lead">
-            I work across actuarial modelling and analytics, and I also build web experiences that make complex info easier to use.
-            Outside work: hiking, board games, and (unfortunately) optimising everything.
+            I’m an actuarial consultant working toward qualification. I enjoy work that turns complex data into clear decisions —
+            and I build lightweight web tools to make analysis easier to use and share.
           </p>
 
           <div class="hero-buttons">
-            <a class="btn btn-primary" href="#projects">See projects</a>
-            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn btn-secondary" href="assets/resume.pdf" target="_blank" rel="noopener">Open resume</a>
           </div>
 
           <div class="hero-links" aria-label="Links">
-            <a class="link" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">
-              <span class="mini-icon" aria-hidden="true">in</span> LinkedIn
+            <a class="link" href="https://www.linkedin.com/in/khubaib-qureshi/" target="_blank" rel="noopener">
+              LinkedIn
             </a>
-            <a class="link" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener">
-              <span class="mini-icon" aria-hidden="true">⌁</span> GitHub
+            <a class="link" href="https://github.com/khubaib2109" target="_blank" rel="noopener">
+              GitHub
             </a>
-            <button class="link link-button" id="copyEmail" type="button" data-email="you@example.com">
-              <span class="mini-icon" aria-hidden="true">@</span> Copy email
-            </button>
+            <a class="link" href="mailto:khubaib.e.qureshi@gmail.com">
+              khubaib.e.qureshi@gmail.com
+            </a>
           </div>
         </div>
 
@@ -92,11 +88,12 @@
           <div class="card">
             <div class="card-top">
               <div class="avatar">
-                <!-- Optional: replace with <img src="assets/headshot.jpg" ...> -->
-                <span aria-hidden="true">👋</span>
+                <!-- Optional: add assets/headshot.jpg and uncomment -->
+                <!-- <img src="assets/headshot.jpg" alt="Khubaib Qureshi" /> -->
+                <span aria-hidden="true">KQ</span>
               </div>
               <div>
-                <p class="card-title">Your Name</p>
+                <p class="card-title">Khubaib Qureshi</p>
                 <p class="card-subtitle">Actuarial Consultant • Aspiring Actuary</p>
               </div>
             </div>
@@ -107,18 +104,18 @@
                 <p class="stat-v">Pricing • Reserving • Risk</p>
               </div>
               <div class="stat">
-                <p class="stat-k">Builder mode</p>
-                <p class="stat-v">Dashboards • Websites • Tools</p>
+                <p class="stat-k">Tools</p>
+                <p class="stat-v">Excel • SQL • Python/R • Power BI</p>
               </div>
               <div class="stat">
-                <p class="stat-k">In the wild</p>
-                <p class="stat-v">Hikes • Board games</p>
+                <p class="stat-k">Interests</p>
+                <p class="stat-v">Web development • Board games • Hiking</p>
               </div>
             </div>
 
             <div class="card-cta">
               <a class="btn btn-secondary" href="#contact">Contact</a>
-              <a class="btn btn-ghost" href="#about">Read more</a>
+              <a class="btn btn-ghost" href="#about">About</a>
             </div>
           </div>
 
@@ -131,14 +128,14 @@
       <div class="container">
         <div class="section-head">
           <h2>Projects</h2>
-          <p class="muted">A mix of actuarial/analytics work (sanitised) and web builds. Replace these with your real projects.</p>
+          <p class="muted">Selected work across actuarial analytics and web development.</p>
         </div>
 
         <div class="filters" role="tablist" aria-label="Project filters">
           <button class="chip is-active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
           <button class="chip" type="button" data-filter="actuarial" role="tab" aria-selected="false">Actuarial / Analytics</button>
           <button class="chip" type="button" data-filter="web" role="tab" aria-selected="false">Web</button>
-          <button class="chip" type="button" data-filter="fun" role="tab" aria-selected="false">Fun</button>
+          <button class="chip" type="button" data-filter="fun" role="tab" aria-selected="false">Personal</button>
         </div>
 
         <div class="grid" id="projectsGrid" aria-live="polite"></div>
@@ -149,34 +146,36 @@
       <div class="container">
         <div class="section-head">
           <h2>Skills</h2>
-          <p class="muted">Keep this honest. People can smell fluff through the screen.</p>
+          <p class="muted">Technical skills and tools I use regularly.</p>
         </div>
 
         <div class="skills-grid">
           <div class="panel">
             <h3>Actuarial & analytics</h3>
             <ul class="list">
-              <li>Modelling: pricing / reserving / experience analysis</li>
-              <li>Data: cleaning, feature engineering, validation</li>
-              <li>Reporting: dashboards, stakeholder-ready outputs</li>
+              <li>Pricing, reserving, experience analysis</li>
+              <li>Data validation, reconciliation, quality checks</li>
+              <li>Clear reporting and stakeholder communication</li>
             </ul>
             <div class="tags">
               <span class="tag">Excel</span>
-              <span class="tag">R / Python</span>
+              <span class="tag">R</span>
+              <span class="tag">Python</span>
               <span class="tag">SQL</span>
               <span class="tag">Power BI</span>
             </div>
           </div>
 
           <div class="panel">
-            <h3>Web & product</h3>
+            <h3>Web development</h3>
             <ul class="list">
-              <li>Frontend: responsive UI, component design</li>
-              <li>APIs: integrating data + auth basics</li>
-              <li>DX: clean structure, readable code</li>
+              <li>Responsive UI and clean layouts</li>
+              <li>Simple web apps and tools</li>
+              <li>Version control and deployment</li>
             </ul>
             <div class="tags">
-              <span class="tag">HTML/CSS</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
               <span class="tag">JavaScript</span>
               <span class="tag">React</span>
               <span class="tag">Git</span>
@@ -184,16 +183,16 @@
           </div>
 
           <div class="panel">
-            <h3>Human skills</h3>
+            <h3>Professional</h3>
             <ul class="list">
-              <li>Clear communication (yes, even with spreadsheets)</li>
-              <li>Stakeholder management</li>
-              <li>Shipping and iterating</li>
+              <li>Structured problem solving</li>
+              <li>Documentation and communication</li>
+              <li>Collaboration in teams</li>
             </ul>
             <div class="tags">
               <span class="tag">Writing</span>
               <span class="tag">Presentation</span>
-              <span class="tag">Collaboration</span>
+              <span class="tag">Stakeholders</span>
             </div>
           </div>
         </div>
@@ -205,12 +204,11 @@
         <div>
           <h2>About</h2>
           <p class="lead">
-            I’m an actuarial consultant working toward qualification, with a habit of building tools and websites on the side.
-            I like work that’s both <span class="accent">analytically rigorous</span> and <span class="accent">human-readable</span>.
+            I’m an actuarial consultant working toward qualification, with a strong interest in building practical tools that support analysis and decision-making.
           </p>
           <p class="muted">
-            I enjoy hiking (because I like walking uphill for fun) and board games (because I like arguing about rules).
-            If you want someone who can model the problem and also build the interface people actually use — let’s talk.
+            I enjoy translating technical work into clear outputs, whether that’s a model, a dashboard, or a lightweight web interface.
+            Outside work I hike and play board games.
           </p>
 
           <div class="about-actions">
@@ -220,28 +218,23 @@
         </div>
 
         <div class="panel">
-          <h3>Currently</h3>
-          <ul class="list">
-            <li>Actuarial consultant (working toward qualification)</li>
-            <li>Building portfolio projects in analytics + web</li>
-            <li>Trying to keep my hiking plans realistic (failing)</li>
-          </ul>
-
-          <hr class="divider" />
-
-          <h3>Quick facts</h3>
+          <h3>Details</h3>
           <div class="facts">
             <div class="fact">
-              <p class="fact-k">Based in</p>
+              <p class="fact-k">Location</p>
               <p class="fact-v">Australia</p>
             </div>
             <div class="fact">
-              <p class="fact-k">Open to</p>
-              <p class="fact-v">Opportunities + collaborations</p>
+              <p class="fact-k">Status</p>
+              <p class="fact-v">Working toward actuarial qualification</p>
             </div>
             <div class="fact">
-              <p class="fact-k">Best icebreaker</p>
-              <p class="fact-v">“What’s your favourite board game?”</p>
+              <p class="fact-k">Links</p>
+              <p class="fact-v">
+                <a class="link" href="https://www.linkedin.com/in/khubaib-qureshi/" target="_blank" rel="noopener">LinkedIn</a>
+                ·
+                <a class="link" href="https://github.com/khubaib2109" target="_blank" rel="noopener">GitHub</a>
+              </p>
             </div>
           </div>
         </div>
@@ -253,18 +246,16 @@
         <div class="contact-card">
           <div>
             <h2>Contact</h2>
-            <p class="muted">Pick your weapon. Email is fastest.</p>
+            <p class="muted">Email is best.</p>
           </div>
 
           <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:you@example.com">Email me</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn btn-ghost" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-primary" href="mailto:khubaib.e.qureshi@gmail.com">khubaib.e.qureshi@gmail.com</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/khubaib-qureshi/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/khubaib2109" target="_blank" rel="noopener">GitHub</a>
           </div>
 
-          <p class="tiny muted">
-            © <span id="year"></span> Your Name. Built on GitHub Pages.
-          </p>
+          <p class="tiny muted">© <span id="year"></span> Khubaib Qureshi.</p>
         </div>
       </div>
     </section>
@@ -273,7 +264,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <a class="back-top" href="#top">Back to top ↑</a>
-      <p class="tiny muted">Make it simple. Make it clear. Make it yours.</p>
+      <p class="tiny muted">Built on GitHub Pages.</p>
     </div>
   </footer>
 

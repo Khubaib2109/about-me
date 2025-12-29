@@ -1,0 +1,162 @@
+/* ====== Reset-ish ====== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.55;
+  background: var(--bg);
+  color: var(--text);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+:focus-visible { outline: 3px solid rgba(59,130,246,.6); outline-offset: 3px; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: #fff;
+  color: #000;
+  padding: 10px 12px;
+  border-radius: 10px;
+  z-index: 9999;
+}
+.skip-link:focus { left: 8px; }
+
+/* ====== Theme ====== */
+:root {
+  --bg: #070b12;
+  --bg2: #0b1220;
+  --panel: rgba(255,255,255,.06);
+  --panel2: rgba(255,255,255,.08);
+  --stroke: rgba(255,255,255,.10);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+  --tiny: rgba(255,255,255,.60);
+  --accent: #3b82f6; /* blue */
+  --accent2: #60a5fa;
+  --shadow: 0 24px 60px rgba(0,0,0,.35);
+  --radius: 18px;
+  --radius2: 24px;
+  --container: 1120px;
+}
+
+[data-theme="light"] {
+  --bg: #f6f8ff;
+  --bg2: #eef3ff;
+  --panel: rgba(255,255,255,.75);
+  --panel2: rgba(255,255,255,.88);
+  --stroke: rgba(15,23,42,.12);
+  --text: rgba(15,23,42,.92);
+  --muted: rgba(15,23,42,.72);
+  --tiny: rgba(15,23,42,.62);
+  --accent: #2563eb;
+  --accent2: #3b82f6;
+  --shadow: 0 24px 60px rgba(2,6,23,.15);
+}
+
+/* ====== Layout ====== */
+.container {
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 76px 0;
+}
+
+.section-head {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+h1, h2, h3 { margin: 0; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.08; }
+h2 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
+h3 { font-size: 1.05rem; }
+.lead { font-size: 1.08rem; color: var(--muted); margin: 0; }
+.muted { color: var(--muted); margin: 0; }
+.tiny { font-size: .92rem; }
+.accent { color: var(--accent2); }
+
+/* ====== Header ====== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,0));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+[data-theme="light"] .site-header {
+  background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0));
+  border-bottom: 1px solid rgba(15,23,42,.08);
+}
+.header-inner {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.brand {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+}
+.brand-mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, var(--accent2), var(--accent));
+  box-shadow: 0 0 0 6px rgba(59,130,246,.15);
+}
+.brand-text { display: grid; gap: 2px; }
+.brand-name { font-weight: 700; }
+.brand-sub { font-size: .9rem; color: var(--muted); }
+
+.nav {
+  display: none;
+  gap: 18px;
+  align-items: center;
+}
+.nav-link {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: .95rem;
+}
+.nav-link:hover { color: var(--text); }
+
+.header-cta { display: flex; gap: 10px; align-items: center; }
+
+/* Show nav on wider screens */
+@media (min-width: 860px) {
+  .nav { display: flex; }
+}
+
+/* ====== Buttons ====== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  letter-spacing: .01em;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  user-select: none;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  box-shadow: 0 12px 30px rgba(59,130,246,.25);
+}
+.btn-primary:hover { filter: brightness(1.05);

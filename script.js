@@ -21,43 +21,80 @@ if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
 
 // ===== Projects =====
 const projects = [
+  // Web builds
   {
-    title: "Actuarial analytics case study (sanitised)",
-    desc: "End-to-end analysis workflow: data checks, modelling, and concise stakeholder-ready reporting.",
-    type: "actuarial",
-    stack: ["SQL", "Python/R", "Excel"],
-    links: [{ label: "Details", href: "#" }]
+    title: "Online rulebook (card game)",
+    desc: "A clean, searchable online rulebook built with HTML and CSS.",
+    type: "web",
+    stack: ["HTML", "CSS"],
+    links: [{ label: "Demo", href: "#" }, { label: "Repo", href: "#" }]
   },
   {
-    title: "Scenario / assumption testing tool (demo)",
-    desc: "Prototype tool to compare scenarios consistently and present outputs clearly.",
-    type: "actuarial",
-    stack: ["Excel", "Python/R"],
-    links: [{ label: "Details", href: "#" }]
+    title: "Multiplayer card game",
+    desc: "Browser-based multiplayer card game built with JavaScript and HTML.",
+    type: "web",
+    stack: ["JavaScript", "HTML"],
+    links: [{ label: "Demo", href: "#" }, { label: "Repo", href: "#" }]
   },
   {
-    title: "Personal website (GitHub Pages)",
-    desc: "Responsive site built and deployed via GitHub Pages with a clean, minimal structure.",
+    title: "Travel tracker (map + stats + export)",
+    desc: "Tool to visualise trips taken, generate stats (including distances), and export files.",
+    type: "data",
+    stack: ["JavaScript", "Data", "Export"],
+    links: [{ label: "Demo", href: "#" }, { label: "Repo", href: "#" }]
+  },
+
+  // Utilities / tools
+  {
+    title: "PDF merger",
+    desc: "Python utility to merge PDFs into a single file with a simple workflow.",
+    type: "tools",
+    stack: ["Python"],
+    links: [{ label: "Repo", href: "#" }]
+  },
+  {
+    title: "Scrabble score tracker",
+    desc: "A lightweight score tracker for Scrabble games with clean UX.",
+    type: "tools",
+    stack: ["JavaScript"],
+    links: [{ label: "Demo", href: "#" }, { label: "Repo", href: "#" }]
+  },
+  {
+    title: "Personal website",
+    desc: "Responsive portfolio site hosted on GitHub Pages.",
     type: "web",
     stack: ["HTML", "CSS", "JavaScript"],
     links: [{ label: "Repo", href: "https://github.com/khubaib2109/about-me" }]
   },
+
+  // Actuarial / consulting work (limited details)
   {
-    title: "Web tool / dashboard (portfolio project)",
-    desc: "A lightweight web build showcasing UI, data handling, and deployment (replace with your real project).",
-    type: "web",
-    stack: ["React", "APIs"],
-    links: [
-      { label: "Live", href: "#" },
-      { label: "Repo", href: "#" }
-    ]
+    title: "FBT submissions (government)",
+    desc: "Prepared FBT submissions for Australian Government departments (details limited).",
+    type: "actuarial",
+    stack: ["Excel", "Data QA"],
+    links: [{ label: "Summary", href: "#" }]
   },
   {
-    title: "Board game tracker (personal)",
-    desc: "Simple tracking project for games played and results (replace with your actual build, if relevant).",
-    type: "fun",
-    stack: ["Python", "Sheets"],
-    links: [{ label: "Notes", href: "#" }]
+    title: "Climate risk dashboards",
+    desc: "Developed climate risk dashboards to support interpretation and decision-making (details limited).",
+    type: "actuarial",
+    stack: ["Power BI", "Analytics"],
+    links: [{ label: "Summary", href: "#" }]
+  },
+  {
+    title: "Private hospital indexation models",
+    desc: "Supported development and refinement of indexation models (details limited).",
+    type: "actuarial",
+    stack: ["Excel", "Modelling"],
+    links: [{ label: "Summary", href: "#" }]
+  },
+  {
+    title: "Banking financial audits",
+    desc: "Contributed to audit analytics and workpapers in banking engagements (details limited).",
+    type: "actuarial",
+    stack: ["Analytics", "Reporting"],
+    links: [{ label: "Summary", href: "#" }]
   }
 ];
 
@@ -65,15 +102,24 @@ const grid = document.getElementById("projectsGrid");
 
 function renderProjects(filter) {
   if (!grid) return;
-  const items = filter === "all" ? projects : projects.filter(p => p.type === filter);
+
+  const items = filter === "all"
+    ? projects
+    : projects.filter(p => p.type === filter);
 
   grid.innerHTML = items.map(p => {
-    const stack = p.stack.map(s => `<span class="tag">${escapeHtml(s)}</span>`).join("");
-    const links = (p.links || []).map(l =>
-      `<a href="${l.href}" ${l.href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${escapeHtml(l.label)}</a>`
-    ).join("");
+    const stack = (p.stack || []).map(s => `<span class="tag">${escapeHtml(s)}</span>`).join("");
+    const links = (p.links || []).map(l => {
+      const isExternal = l.href && (l.href.startsWith("http") || l.href.startsWith("https"));
+      const attrs = isExternal ? `target="_blank" rel="noopener"` : "";
+      return `<a href="${l.href}" ${attrs}>${escapeHtml(l.label)}</a>`;
+    }).join("");
 
-    const badgeText = p.type === "actuarial" ? "Actuarial" : (p.type === "web" ? "Web" : "Personal");
+    const badgeText =
+      p.type === "web" ? "Web" :
+      p.type === "tools" ? "Tools" :
+      p.type === "data" ? "Data" :
+      "Actuarial";
 
     return `
       <article class="project">
@@ -89,7 +135,7 @@ function renderProjects(filter) {
   }).join("");
 
   if (items.length === 0) {
-    grid.innerHTML = `<p class="muted">No projects yet.</p>`;
+    grid.innerHTML = `<p class="muted">No projects in this category yet.</p>`;
   }
 }
 

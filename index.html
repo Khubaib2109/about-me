@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Actuarial Consultant & Builder</title>
+  <meta name="description" content="Actuarial consultant working towards qualification. I build models, dashboards, and websites. Hiking + board games on the side." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Your Name — Actuarial Consultant & Builder" />
+  <meta property="og:description" content="Actuarial consultant working towards qualification. Models, dashboards, websites. Hiking + board games." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:url" content="https://YOURUSERNAME.github.io/" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name">Your Name</span>
+          <span class="brand-sub">Actuarial Consultant • Web Builder</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-cta">
+        <button class="btn btn-ghost" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span class="icon" aria-hidden="true">
+            <!-- moon/sun icon is swapped by JS (text fallback still ok) -->
+            ☾
+          </span>
+        </button>
+        <a class="btn btn-primary" href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="pill">
+            <span class="dot" aria-hidden="true"></span>
+            Working towards becoming an actuary • Building useful things
+          </p>
+
+          <h1>
+            Actuarial consultant who builds
+            <span class="accent">data-driven products</span>
+            and clean websites.
+          </h1>
+
+          <p class="lead">
+            I work across actuarial modelling and analytics, and I also build web experiences that make complex info easier to use.
+            Outside work: hiking, board games, and (unfortunately) optimising everything.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#projects">See projects</a>
+            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+          </div>
+
+          <div class="hero-links" aria-label="Links">
+            <a class="link" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">
+              <span class="mini-icon" aria-hidden="true">in</span> LinkedIn
+            </a>
+            <a class="link" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener">
+              <span class="mini-icon" aria-hidden="true">⌁</span> GitHub
+            </a>
+            <button class="link link-button" id="copyEmail" type="button" data-email="you@example.com">
+              <span class="mini-icon" aria-hidden="true">@</span> Copy email
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-card" role="presentation">
+          <div class="card">
+            <div class="card-top">
+              <div class="avatar">
+                <!-- Optional: replace with <img src="assets/headshot.jpg" ...> -->
+                <span aria-hidden="true">👋</span>
+              </div>
+              <div>
+                <p class="card-title">Your Name</p>
+                <p class="card-subtitle">Actuarial Consultant • Aspiring Actuary</p>
+              </div>
+            </div>
+
+            <div class="card-stats">
+              <div class="stat">
+                <p class="stat-k">Focus</p>
+                <p class="stat-v">Pricing • Reserving • Risk</p>
+              </div>
+              <div class="stat">
+                <p class="stat-k">Builder mode</p>
+                <p class="stat-v">Dashboards • Websites • Tools</p>
+              </div>
+              <div class="stat">
+                <p class="stat-k">In the wild</p>
+                <p class="stat-v">Hikes • Board games</p>
+              </div>
+            </div>
+
+            <div class="card-cta">
+              <a class="btn btn-secondary" href="#contact">Contact</a>
+              <a class="btn btn-ghost" href="#about">Read more</a>
+            </div>
+          </div>
+
+          <div class="glow" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p class="muted">A mix of actuarial/analytics work (sanitised) and web builds. Replace these with your real projects.</p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Project filters">
+          <button class="chip is-active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="chip" type="button" data-filter="actuarial" role="tab" aria-selected="false">Actuarial / Analytics</button>
+          <button class="chip" type="button" data-filter="web" role="tab" aria-selected="false">Web</button>
+          <button class="chip" type="button" data-filter="fun" role="tab" aria-selected="false">Fun</button>
+        </div>
+
+        <div class="grid" id="projectsGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p class="muted">Keep this honest. People can smell fluff through the screen.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="panel">
+            <h3>Actuarial & analytics</h3>
+            <ul class="list">
+              <li>Modelling: pricing / reserving / experience analysis</li>
+              <li>Data: cleaning, feature engineering, validation</li>
+              <li>Reporting: dashboards, stakeholder-ready outputs</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Excel</span>
+              <span class="tag">R / Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Power BI</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Web & product</h3>
+            <ul class="list">
+              <li>Frontend: responsive UI, component design</li>
+              <li>APIs: integrating data + auth basics</li>
+              <li>DX: clean structure, readable code</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Human skills</h3>
+            <ul class="list">
+              <li>Clear communication (yes, even with spreadsheets)</li>
+              <li>Stakeholder management</li>
+              <li>Shipping and iterating</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Writing</span>
+              <span class="tag">Presentation</span>
+              <span class="tag">Collaboration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div>
+          <h2>About</h2>
+          <p class="lead">
+            I’m an actuarial consultant working toward qualification, with a habit of building tools and websites on the side.
+            I like work that’s both <span class="accent">analytically rigorous</span> and <span class="accent">human-readable</span>.
+          </p>
+          <p class="muted">
+            I enjoy hiking (because I like walking uphill for fun) and board games (because I like arguing about rules).
+            If you want someone who can model the problem and also build the interface people actually use — let’s talk.
+          </p>
+
+          <div class="about-actions">
+            <a class="btn btn-primary" href="assets/resume.pdf" target="_blank" rel="noopener">Open resume</a>
+            <a class="btn btn-secondary" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Currently</h3>
+          <ul class="list">
+            <li>Actuarial consultant (working toward qualification)</li>
+            <li>Building portfolio projects in analytics + web</li>
+            <li>Trying to keep my hiking plans realistic (failing)</li>
+          </ul>
+
+          <hr class="divider" />
+
+          <h3>Quick facts</h3>
+          <div class="facts">
+            <div class="fact">
+              <p class="fact-k">Based in</p>
+              <p class="fact-v">Australia</p>
+            </div>
+            <div class="fact">
+              <p class="fact-k">Open to</p>
+              <p class="fact-v">Opportunities + collaborations</p>
+            </div>
+            <div class="fact">
+              <p class="fact-k">Best icebreaker</p>
+              <p class="fact-v">“What’s your favourite board game?”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <h2>Contact</h2>
+            <p class="muted">Pick your weapon. Email is fastest.</p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:you@example.com">Email me</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/YOURUSERNAME" target="_blank" rel="noopener">GitHub</a>
+          </div>
+
+          <p class="tiny muted">
+            © <span id="year"></span> Your Name. Built on GitHub Pages.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="back-top" href="#top">Back to top ↑</a>
+      <p class="tiny muted">Make it simple. Make it clear. Make it yours.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

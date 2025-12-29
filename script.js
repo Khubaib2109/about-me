@@ -67,7 +67,7 @@ const projects = [
     links: [{ label: "Repo", href: "https://github.com/khubaib2109/about-me" }]
   },
 
-  // Actuarial / consulting work (limited details)
+  // Actuarial / data analytics work (limited details)
   {
     title: "FBT submissions (government)",
     desc: "Prepared FBT submissions for Australian Government departments (details limited).",
@@ -95,6 +95,27 @@ const projects = [
     type: "actuarial",
     stack: ["Analytics", "Reporting"],
     links: [{ label: "Summary", href: "#" }]
+  },
+  {
+    title: "Budget costings (Australian school funding)",
+    desc: "Built Excel-based costings to support school funding analysis and budget processes (details limited).",
+    type: "actuarial",
+    stack: ["Excel", "Costing", "QA"],
+    links: [{ label: "Summary", href: "#" }]
+  },
+  {
+    title: "Student enrolment projections (Australia)",
+    desc: "Produced enrolment projection outputs using R, including data preparation and reporting (details limited).",
+    type: "actuarial",
+    stack: ["R", "Forecasting", "Data"],
+    links: [{ label: "Summary", href: "#" }]
+  },
+  {
+    title: "School funding dashboard (executive + team use)",
+    desc: "Developed Power BI dashboards to visualise school funding data for executives and delivery teams (details limited).",
+    type: "actuarial",
+    stack: ["Power BI", "Data visualisation", "Stakeholders"],
+    links: [{ label: "Summary", href: "#" }]
   }
 ];
 
@@ -103,9 +124,7 @@ const grid = document.getElementById("projectsGrid");
 function renderProjects(filter) {
   if (!grid) return;
 
-  const items = filter === "all"
-    ? projects
-    : projects.filter(p => p.type === filter);
+  const items = filter === "all" ? projects : projects.filter(p => p.type === filter);
 
   grid.innerHTML = items.map(p => {
     const stack = (p.stack || []).map(s => `<span class="tag">${escapeHtml(s)}</span>`).join("");
@@ -119,7 +138,7 @@ function renderProjects(filter) {
       p.type === "web" ? "Web" :
       p.type === "tools" ? "Tools" :
       p.type === "data" ? "Data" :
-      "Actuarial";
+      "Actuarial & Data";
 
     return `
       <article class="project">

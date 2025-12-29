@@ -7,7 +7,6 @@ function setTheme(theme) {
   localStorage.setItem("theme", theme);
   themeIcon.textContent = theme === "light" ? "☀" : "☾";
 }
-
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "light" || savedTheme === "dark") setTheme(savedTheme);
 
@@ -20,77 +19,45 @@ themeToggle?.addEventListener("click", () => {
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
 
-// ===== Copy email =====
-const copyEmailBtn = document.getElementById("copyEmail");
-copyEmailBtn?.addEventListener("click", async () => {
-  const email = copyEmailBtn.getAttribute("data-email") || "";
-  try {
-    await navigator.clipboard.writeText(email);
-    const original = copyEmailBtn.textContent;
-    copyEmailBtn.textContent = "✓ Copied";
-    setTimeout(() => (copyEmailBtn.textContent = original), 900);
-  } catch {
-    // fallback
-    window.location.href = `mailto:${email}`;
-  }
-});
-
 // ===== Projects =====
 const projects = [
   {
-    title: "Claims / experience analysis (sanitised)",
-    desc: "Built a repeatable pipeline for cleaning + validating data, then produced insights for stakeholders.",
+    title: "Actuarial analytics case study (sanitised)",
+    desc: "End-to-end analysis workflow: data checks, modelling, and concise stakeholder-ready reporting.",
     type: "actuarial",
     stack: ["SQL", "Python/R", "Excel"],
-    links: [
-      { label: "Case study", href: "#" }
-    ]
+    links: [{ label: "Details", href: "#" }]
   },
   {
-    title: "Pricing model tool (demo)",
-    desc: "Interactive model prototype to test assumptions and compare scenarios without spreadsheet chaos.",
+    title: "Scenario / assumption testing tool (demo)",
+    desc: "Prototype tool to compare scenarios consistently and present outputs clearly.",
     type: "actuarial",
     stack: ["Excel", "Python/R"],
-    links: [
-      { label: "Write-up", href: "#" }
-    ]
+    links: [{ label: "Details", href: "#" }]
   },
   {
-    title: "Portfolio website (this site)",
-    desc: "Fast, modern, responsive site hosted on GitHub Pages. Simple structure, clean design, deploy-ready.",
+    title: "Personal website (GitHub Pages)",
+    desc: "Responsive site built and deployed via GitHub Pages with a clean, minimal structure.",
     type: "web",
-    stack: ["HTML", "CSS", "JS"],
-    links: [
-      { label: "Repo", href: "https://github.com/YOURUSERNAME/about-me" }
-    ]
+    stack: ["HTML", "CSS", "JavaScript"],
+    links: [{ label: "Repo", href: "https://github.com/khubaib2109/about-me" }]
   },
   {
-    title: "Web app / dashboard project",
-    desc: "A small web build showcasing UI + data handling (swap this with your real project).",
+    title: "Web tool / dashboard (portfolio project)",
+    desc: "A lightweight web build showcasing UI, data handling, and deployment (replace with your real project).",
     type: "web",
-    stack: ["React", "API", "Charts"],
+    stack: ["React", "APIs"],
     links: [
-      { label: "Live demo", href: "#" },
+      { label: "Live", href: "#" },
       { label: "Repo", href: "#" }
     ]
   },
   {
-    title: "Board game stats tracker",
-    desc: "Tracked games played + win rates + fun metrics. Because spreadsheets are my love language.",
+    title: "Board game tracker (personal)",
+    desc: "Simple tracking project for games played and results (replace with your actual build, if relevant).",
     type: "fun",
-    stack: ["Sheets", "Python"],
-    links: [
-      { label: "Overview", href: "#" }
-    ]
-  },
-  {
-    title: "Hiking planner map",
-    desc: "Map-based planner for routes + gear checklists (great portfolio project if you want to build it).",
-    type: "fun",
-    stack: ["JS", "Maps"],
-    links: [
-      { label: "Idea notes", href: "#" }
-    ]
+    stack: ["Python", "Sheets"],
+    links: [{ label: "Notes", href: "#" }]
   }
 ];
 
@@ -98,7 +65,7 @@ const grid = document.getElementById("projectsGrid");
 
 function renderProjects(filter) {
   if (!grid) return;
-  const items = (filter === "all") ? projects : projects.filter(p => p.type === filter);
+  const items = filter === "all" ? projects : projects.filter(p => p.type === filter);
 
   grid.innerHTML = items.map(p => {
     const stack = p.stack.map(s => `<span class="tag">${escapeHtml(s)}</span>`).join("");
@@ -106,7 +73,7 @@ function renderProjects(filter) {
       `<a href="${l.href}" ${l.href.startsWith("http") ? 'target="_blank" rel="noopener"' : ""}>${escapeHtml(l.label)}</a>`
     ).join("");
 
-    const badgeText = p.type === "actuarial" ? "Actuarial" : (p.type === "web" ? "Web" : "Fun");
+    const badgeText = p.type === "actuarial" ? "Actuarial" : (p.type === "web" ? "Web" : "Personal");
 
     return `
       <article class="project">
@@ -122,7 +89,7 @@ function renderProjects(filter) {
   }).join("");
 
   if (items.length === 0) {
-    grid.innerHTML = `<p class="muted">No projects yet. Add one — even a small build is better than nothing.</p>`;
+    grid.innerHTML = `<p class="muted">No projects yet.</p>`;
   }
 }
 

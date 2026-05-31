@@ -21,101 +21,110 @@ if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
 
 // ===== Projects =====
 const projects = [
-  // Web builds
+  // GitHub / web builds
   {
-    title: "Online rulebook (card game)",
-    desc: "A clean, searchable online rulebook built with HTML and CSS.",
+    title: "My Travel Passport",
+    desc: "An interactive 3D globe for logging trips, visualising routes, importing spreadsheet data, and exploring travel statistics.",
     type: "web",
-    stack: ["HTML", "CSS"],
-    links: [{ label: "Demo", href: "#" }, { label: "Repo", href: "#" }]
+    stack: ["HTML", "CSS", "JavaScript", "Globe.gl", "XLSX"],
+    links: [
+      { label: "Demo", href: "https://khubaib2109.github.io/my-travel-passport/" },
+      { label: "Repo", href: "https://github.com/Khubaib2109/my-travel-passport" }
+    ]
   },
   {
-    title: "Multiplayer card game",
-    desc: "Browser-based multiplayer card game built with JavaScript and HTML.",
-    type: "web",
-    stack: ["JavaScript", "HTML"],
-    links: [{ label: "Demo", href: "#" }, { label: "Repo", href: "#" }]
+    title: "Scrabble Score Tracker",
+    desc: "A browser-based Scrabble tracker with a playable board, player scoring, and a cleaner interface for casual games.",
+    type: "tools",
+    stack: ["HTML", "CSS", "JavaScript", "Game logic"],
+    links: [
+      { label: "Demo", href: "https://khubaib2109.github.io/scrabble/" },
+      { label: "Repo", href: "https://github.com/Khubaib2109/scrabble" }
+    ]
   },
   {
-    title: "Travel tracker (map + stats + export)",
-    desc: "Tool to visualise trips taken, generate stats (including distances), and export files.",
+    title: "80 Points Online",
+    desc: "A browser card-game build with a lobby-style interface and real-time multiplayer-oriented structure.",
+    type: "web",
+    stack: ["HTML", "CSS", "JavaScript", "Socket.io"],
+    links: [
+      { label: "Demo", href: "https://khubaib2109.github.io/80points-claude/" },
+      { label: "Repo", href: "https://github.com/Khubaib2109/80points-claude" }
+    ]
+  },
+  {
+    title: "Optimal Coin Flip Game",
+    desc: "A probability and decision-making visualisation that explores optimal stopping through a binomial-tree style interface.",
     type: "data",
-    stack: ["JavaScript", "Data", "Export"],
-    links: [{ label: "Demo", href: "#" }, { label: "Repo", href: "#" }]
-  },
-
-  // Utilities / tools
-  {
-    title: "PDF merger",
-    desc: "Python utility to merge PDFs into a single file with a simple workflow.",
-    type: "tools",
-    stack: ["Python"],
-    links: [{ label: "Repo", href: "#" }]
+    stack: ["JavaScript", "Probability", "Visualisation"],
+    links: [
+      { label: "Demo", href: "https://khubaib2109.github.io/coinflip/" },
+      { label: "Repo", href: "https://github.com/Khubaib2109/coinflip" }
+    ]
   },
   {
-    title: "Scrabble score tracker",
-    desc: "A lightweight score tracker for Scrabble games with clean UX.",
+    title: "Chest Royale",
+    desc: "A mobile-friendly chest-opening simulator with animated reveals, rarity tiers, collection tracking, and game-style UX.",
+    type: "web",
+    stack: ["HTML", "CSS", "JavaScript", "Animation"],
+    links: [
+      { label: "Demo", href: "https://khubaib2109.github.io/chest_opener/" },
+      { label: "Repo", href: "https://github.com/Khubaib2109/chest_opener" }
+    ]
+  },
+  {
+    title: "PDF Merger",
+    desc: "A local-only Python web app for uploading, reordering, previewing, selecting page ranges, and merging PDFs without uploading files elsewhere.",
     type: "tools",
-    stack: ["JavaScript"],
-    links: [{ label: "Demo", href: "#" }, { label: "Repo", href: "#" }]
+    stack: ["Python", "Streamlit", "PDF tooling", "Local app"],
+    links: [{ label: "Repo", href: "https://github.com/Khubaib2109/pdf-merger" }]
   },
   {
     title: "Personal website",
-    desc: "Responsive portfolio site hosted on GitHub Pages.",
+    desc: "This responsive portfolio site, hosted through GitHub Pages and structured to showcase experience, skills, and selected builds.",
     type: "web",
-    stack: ["HTML", "CSS", "JavaScript"],
-    links: [{ label: "Repo", href: "https://github.com/khubaib2109/about-me" }]
+    stack: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    links: [
+      { label: "Demo", href: "https://khubaib2109.github.io/about-me/" },
+      { label: "Repo", href: "https://github.com/Khubaib2109/about-me" }
+    ]
   },
 
-  // Actuarial / data analytics work (limited details)
+  // Professional analytics themes — intentionally high level
   {
-    title: "FBT submissions (government)",
-    desc: "Prepared FBT submissions for Australian Government departments (details limited).",
+    title: "Healthcare and aged-care analytics",
+    desc: "Quantitative analysis, dashboards, and modelling to support performance, cost-driver, risk, and strategic opportunity insights.",
     type: "actuarial",
-    stack: ["Excel", "Data QA"],
-    links: [{ label: "Summary", href: "#" }]
+    stack: ["R", "Excel", "Power BI", "SAS", "Stakeholder reporting"],
+    links: [{ label: "Experience", href: "#experience" }]
   },
   {
-    title: "Climate risk dashboards",
-    desc: "Developed climate risk dashboards to support interpretation and decision-making (details limited).",
+    title: "Government funding and costing models",
+    desc: "Financial and costing models supporting school funding allocations, budget planning, policy analysis, and implementation advice.",
     type: "actuarial",
-    stack: ["Power BI", "Analytics"],
-    links: [{ label: "Summary", href: "#" }]
+    stack: ["Excel", "R", "Power BI", "Forecasting", "Costing"],
+    links: [{ label: "Experience", href: "#experience" }]
   },
   {
-    title: "Private hospital indexation models",
-    desc: "Supported development and refinement of indexation models (details limited).",
-    type: "actuarial",
-    stack: ["Excel", "Modelling"],
-    links: [{ label: "Summary", href: "#" }]
+    title: "Enrolment and disability-growth forecasting",
+    desc: "Forecasting outputs for student retention, enrolment trends, disability growth, long-term financial planning, and funding projections.",
+    type: "data",
+    stack: ["Forecasting", "R", "Financial planning", "Policy data"],
+    links: [{ label: "Experience", href: "#experience" }]
   },
   {
-    title: "Banking financial audits",
-    desc: "Contributed to audit analytics and workpapers in banking engagements (details limited).",
+    title: "Model review and assurance support",
+    desc: "Validation and interpretation of statistical methods, coding outputs, and analytical assumptions for assurance-style engagements.",
     type: "actuarial",
-    stack: ["Analytics", "Reporting"],
-    links: [{ label: "Summary", href: "#" }]
+    stack: ["Model review", "Statistical methods", "Risk analysis", "QA"],
+    links: [{ label: "Experience", href: "#experience" }]
   },
   {
-    title: "Budget costings (Australian school funding)",
-    desc: "Built Excel-based costings to support school funding analysis and budget processes (details limited).",
+    title: "Finance and compliance reporting",
+    desc: "Financial reconciliations, journal processing, FBT, TPAR, statutory reporting support, and process improvement in government finance.",
     type: "actuarial",
-    stack: ["Excel", "Costing", "QA"],
-    links: [{ label: "Summary", href: "#" }]
-  },
-  {
-    title: "Student enrolment projections (Australia)",
-    desc: "Produced enrolment projection outputs using R, including data preparation and reporting (details limited).",
-    type: "actuarial",
-    stack: ["R", "Forecasting", "Data"],
-    links: [{ label: "Summary", href: "#" }]
-  },
-  {
-    title: "School funding dashboard (executive + team use)",
-    desc: "Developed Power BI dashboards to visualise school funding data for executives and delivery teams (details limited).",
-    type: "actuarial",
-    stack: ["Power BI", "Data visualisation", "Stakeholders"],
-    links: [{ label: "Summary", href: "#" }]
+    stack: ["Excel", "Reporting", "Compliance", "Process improvement"],
+    links: [{ label: "Experience", href: "#experience" }]
   }
 ];
 
@@ -131,14 +140,14 @@ function renderProjects(filter) {
     const links = (p.links || []).map(l => {
       const isExternal = l.href && (l.href.startsWith("http") || l.href.startsWith("https"));
       const attrs = isExternal ? `target="_blank" rel="noopener"` : "";
-      return `<a href="${l.href}" ${attrs}>${escapeHtml(l.label)}</a>`;
+      return `<a href="${escapeAttribute(l.href)}" ${attrs}>${escapeHtml(l.label)}</a>`;
     }).join("");
 
     const badgeText =
       p.type === "web" ? "Web" :
       p.type === "tools" ? "Tools" :
       p.type === "data" ? "Data" :
-      "Actuarial & Data";
+      "Actuarial & Consulting";
 
     return `
       <article class="project">
@@ -167,12 +176,20 @@ function escapeHtml(str) {
     .replaceAll("'", "&#039;");
 }
 
+function escapeAttribute(str) {
+  return escapeHtml(str || "#");
+}
+
 // Filters UI
 const chips = Array.from(document.querySelectorAll(".chip"));
 chips.forEach(chip => {
   chip.addEventListener("click", () => {
-    chips.forEach(c => c.classList.remove("is-active"));
+    chips.forEach(c => {
+      c.classList.remove("is-active");
+      c.setAttribute("aria-selected", "false");
+    });
     chip.classList.add("is-active");
+    chip.setAttribute("aria-selected", "true");
 
     const filter = chip.getAttribute("data-filter") || "all";
     renderProjects(filter);

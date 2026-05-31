@@ -5,10 +5,13 @@ const themeIcon = document.getElementById("themeIcon");
 function setTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
   localStorage.setItem("theme", theme);
-  themeIcon.textContent = theme === "light" ? "☀" : "☾";
+  if (themeIcon) themeIcon.textContent = theme === "light" ? "☀" : "☾";
 }
+
 const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light" || savedTheme === "dark") setTheme(savedTheme);
+if (savedTheme === "light" || savedTheme === "dark") {
+  setTheme(savedTheme);
+}
 
 themeToggle?.addEventListener("click", () => {
   const current = document.documentElement.getAttribute("data-theme") || "dark";
@@ -19,13 +22,14 @@ themeToggle?.addEventListener("click", () => {
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
 
-// ===== Projects =====
-const projects = [
-  // GitHub / web builds
+// ===== Personal project cards =====
+const personalProjects = [
   {
     title: "My Travel Passport",
-    desc: "An interactive 3D globe for logging trips, visualising routes, importing spreadsheet data, and exploring travel statistics.",
-    type: "web",
+    kicker: "3D globe travel tracker",
+    desc: "Interactive travel map with a rotatable globe, spreadsheet import, chronological route playback, statistics, and export-friendly trip data.",
+    icon: "🌏",
+    size: "large",
     stack: ["HTML", "CSS", "JavaScript", "Globe.gl", "XLSX"],
     links: [
       { label: "Demo", href: "https://khubaib2109.github.io/my-travel-passport/" },
@@ -34,8 +38,10 @@ const projects = [
   },
   {
     title: "Scrabble Score Tracker",
-    desc: "A browser-based Scrabble tracker with a playable board, player scoring, and a cleaner interface for casual games.",
-    type: "tools",
+    kicker: "Board game scoring tool",
+    desc: "A browser-based Scrabble tracker with a playable board, player scoring, tile values, and a cleaner interface for casual games.",
+    icon: "🔠",
+    size: "medium",
     stack: ["HTML", "CSS", "JavaScript", "Game logic"],
     links: [
       { label: "Demo", href: "https://khubaib2109.github.io/scrabble/" },
@@ -43,19 +49,11 @@ const projects = [
     ]
   },
   {
-    title: "80 Points Online",
-    desc: "A browser card-game build with a lobby-style interface and real-time multiplayer-oriented structure.",
-    type: "web",
-    stack: ["HTML", "CSS", "JavaScript", "Socket.io"],
-    links: [
-      { label: "Demo", href: "https://khubaib2109.github.io/80points-claude/" },
-      { label: "Repo", href: "https://github.com/Khubaib2109/80points-claude" }
-    ]
-  },
-  {
     title: "Optimal Coin Flip Game",
-    desc: "A probability and decision-making visualisation that explores optimal stopping through a binomial-tree style interface.",
-    type: "data",
+    kicker: "Probability visualisation",
+    desc: "An optimal-stopping visualisation that explores a coin-flip payoff problem through an interactive binomial-tree style interface.",
+    icon: "🪙",
+    size: "medium",
     stack: ["JavaScript", "Probability", "Visualisation"],
     links: [
       { label: "Demo", href: "https://khubaib2109.github.io/coinflip/" },
@@ -64,8 +62,10 @@ const projects = [
   },
   {
     title: "Chest Royale",
-    desc: "A mobile-friendly chest-opening simulator with animated reveals, rarity tiers, collection tracking, and game-style UX.",
-    type: "web",
+    kicker: "Animated game simulator",
+    desc: "A mobile-friendly chest-opening simulator with animated card reveals, hidden rarity tiers, collection tracking, and game-style UI.",
+    icon: "🎁",
+    size: "small",
     stack: ["HTML", "CSS", "JavaScript", "Animation"],
     links: [
       { label: "Demo", href: "https://khubaib2109.github.io/chest_opener/" },
@@ -74,97 +74,129 @@ const projects = [
   },
   {
     title: "PDF Merger",
-    desc: "A local-only Python web app for uploading, reordering, previewing, selecting page ranges, and merging PDFs without uploading files elsewhere.",
-    type: "tools",
+    kicker: "Local-only productivity app",
+    desc: "A local Python web app for uploading, reordering, previewing, selecting page ranges, and merging PDFs without uploading files elsewhere.",
+    icon: "📎",
+    size: "small",
     stack: ["Python", "Streamlit", "PDF tooling", "Local app"],
-    links: [{ label: "Repo", href: "https://github.com/Khubaib2109/pdf-merger" }]
+    links: [
+      { label: "Repo", href: "https://github.com/Khubaib2109/pdf-merger" }
+    ]
   },
   {
-    title: "Personal website",
-    desc: "This responsive portfolio site, hosted through GitHub Pages and structured to showcase experience, skills, and selected builds.",
-    type: "web",
+    title: "Personal Portfolio Website",
+    kicker: "This blue portfolio site",
+    desc: "A responsive homepage designed to showcase actuarial experience, analytics capability, and selected GitHub projects in a modern masonry layout.",
+    icon: "💼",
+    size: "small",
     stack: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
     links: [
       { label: "Demo", href: "https://khubaib2109.github.io/about-me/" },
       { label: "Repo", href: "https://github.com/Khubaib2109/about-me" }
     ]
-  },
-
-  // Professional analytics themes — intentionally high level
-  {
-    title: "Healthcare and aged-care analytics",
-    desc: "Quantitative analysis, dashboards, and modelling to support performance, cost-driver, risk, and strategic opportunity insights.",
-    type: "actuarial",
-    stack: ["R", "Excel", "Power BI", "SAS", "Stakeholder reporting"],
-    links: [{ label: "Experience", href: "#experience" }]
-  },
-  {
-    title: "Government funding and costing models",
-    desc: "Financial and costing models supporting school funding allocations, budget planning, policy analysis, and implementation advice.",
-    type: "actuarial",
-    stack: ["Excel", "R", "Power BI", "Forecasting", "Costing"],
-    links: [{ label: "Experience", href: "#experience" }]
-  },
-  {
-    title: "Enrolment and disability-growth forecasting",
-    desc: "Forecasting outputs for student retention, enrolment trends, disability growth, long-term financial planning, and funding projections.",
-    type: "data",
-    stack: ["Forecasting", "R", "Financial planning", "Policy data"],
-    links: [{ label: "Experience", href: "#experience" }]
-  },
-  {
-    title: "Model review and assurance support",
-    desc: "Validation and interpretation of statistical methods, coding outputs, and analytical assumptions for assurance-style engagements.",
-    type: "actuarial",
-    stack: ["Model review", "Statistical methods", "Risk analysis", "QA"],
-    links: [{ label: "Experience", href: "#experience" }]
-  },
-  {
-    title: "Finance and compliance reporting",
-    desc: "Financial reconciliations, journal processing, FBT, TPAR, statutory reporting support, and process improvement in government finance.",
-    type: "actuarial",
-    stack: ["Excel", "Reporting", "Compliance", "Process improvement"],
-    links: [{ label: "Experience", href: "#experience" }]
   }
 ];
 
-const grid = document.getElementById("projectsGrid");
+// ===== Professional work cards =====
+const workHighlights = [
+  {
+    title: "KPMG actuarial consulting",
+    desc: "Quantitative analysis, dashboards, visualisations, analytical tools, model review support, and stakeholder reporting across healthcare, aged care, financial services, infrastructure, and government-sector projects.",
+    note: "Details limited where client-facing.",
+    stack: ["R", "Excel", "Power BI", "SAS", "Model review"]
+  },
+  {
+    title: "Administration cost study",
+    desc: "Supported an administration cost study using survey design and analysis, data preparation, Power Query workflows, Excel modelling, R analysis, and Power BI reporting.",
+    note: "Details limited.",
+    stack: ["R", "Excel", "Power BI", "Power Query", "Surveying"]
+  },
+  {
+    title: "Transmission network analysis",
+    desc: "Performed analysis for a transmission network project, using R and Excel to prepare, interrogate, and communicate analytical outputs.",
+    note: "Details limited.",
+    stack: ["R", "Excel", "Network analysis", "Reporting"]
+  },
+  {
+    title: "School funding and budget models",
+    desc: "Developed and maintained financial and costing models to support school funding allocations, government budget planning, policy analysis, and implementation advice.",
+    note: "Department of Education.",
+    stack: ["Excel", "R", "Power BI", "Costing", "Forecasting"]
+  },
+  {
+    title: "Enrolment and disability-growth forecasting",
+    desc: "Forecasted student retention, enrolment trends, and disability growth to support long-term financial planning, resource allocation, and funding projections.",
+    note: "Department of Education.",
+    stack: ["Forecasting", "R", "Financial planning", "Policy data"]
+  },
+  {
+    title: "Finance, compliance, and statutory reporting",
+    desc: "Improved financial and data management processes, prepared FBT and TPAR reporting, performed reconciliations and journal processing, and contributed to statutory reporting deliverables.",
+    note: "Department of Education finance roles.",
+    stack: ["Excel", "Data QA", "Compliance", "Reporting"]
+  }
+];
 
-function renderProjects(filter) {
-  if (!grid) return;
+const projectsMasonry = document.getElementById("projectsMasonry");
+const workGrid = document.getElementById("workGrid");
 
-  const items = filter === "all" ? projects : projects.filter(p => p.type === filter);
+function renderPersonalProjects() {
+  if (!projectsMasonry) return;
 
-  grid.innerHTML = items.map(p => {
-    const stack = (p.stack || []).map(s => `<span class="tag">${escapeHtml(s)}</span>`).join("");
-    const links = (p.links || []).map(l => {
-      const isExternal = l.href && (l.href.startsWith("http") || l.href.startsWith("https"));
-      const attrs = isExternal ? `target="_blank" rel="noopener"` : "";
-      return `<a href="${escapeAttribute(l.href)}" ${attrs}>${escapeHtml(l.label)}</a>`;
-    }).join("");
-
-    const badgeText =
-      p.type === "web" ? "Web" :
-      p.type === "tools" ? "Tools" :
-      p.type === "data" ? "Data" :
-      "Actuarial & Consulting";
+  projectsMasonry.innerHTML = personalProjects.map((project, index) => {
+    const stack = renderTags(project.stack);
+    const links = renderLinks(project.links);
+    const delay = `${Math.min(index * 80, 420)}ms`;
 
     return `
-      <article class="project">
-        <div class="project-top">
-          <h3>${escapeHtml(p.title)}</h3>
-          <span class="badge">${badgeText}</span>
+      <article class="project-card project-${project.size || "medium"} reveal" style="--delay:${delay}">
+        <div class="project-thumb" aria-hidden="true">
+          <span>${escapeHtml(project.icon)}</span>
+          <div class="thumb-shine"></div>
         </div>
-        <p>${escapeHtml(p.desc)}</p>
-        <div class="tags">${stack}</div>
-        <div class="project-actions">${links}</div>
+        <div class="project-body">
+          <p class="project-kicker">${escapeHtml(project.kicker)}</p>
+          <h3>${escapeHtml(project.title)}</h3>
+          <p>${escapeHtml(project.desc)}</p>
+          <div class="tags">${stack}</div>
+          <div class="project-actions">${links}</div>
+        </div>
       </article>
     `;
   }).join("");
+}
 
-  if (items.length === 0) {
-    grid.innerHTML = `<p class="muted">No projects in this category yet.</p>`;
-  }
+function renderWorkHighlights() {
+  if (!workGrid) return;
+
+  workGrid.innerHTML = workHighlights.map((item, index) => {
+    const stack = renderTags(item.stack);
+    const delay = `${Math.min(index * 70, 350)}ms`;
+
+    return `
+      <article class="work-card reveal" style="--delay:${delay}">
+        <div class="work-top">
+          <span class="work-number">${String(index + 1).padStart(2, "0")}</span>
+          <span class="badge">${escapeHtml(item.note)}</span>
+        </div>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.desc)}</p>
+        <div class="tags">${stack}</div>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderTags(tags = []) {
+  return tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
+}
+
+function renderLinks(links = []) {
+  return links.map(link => {
+    const isExternal = /^https?:\/\//i.test(link.href);
+    const attrs = isExternal ? `target="_blank" rel="noopener"` : "";
+    return `<a href="${escapeAttribute(link.href)}" ${attrs}>${escapeHtml(link.label)}</a>`;
+  }).join("");
 }
 
 function escapeHtml(str) {
@@ -177,24 +209,26 @@ function escapeHtml(str) {
 }
 
 function escapeAttribute(str) {
-  return escapeHtml(str || "#");
+  return escapeHtml(str).replaceAll("`", "&#096;");
 }
 
-// Filters UI
-const chips = Array.from(document.querySelectorAll(".chip"));
-chips.forEach(chip => {
-  chip.addEventListener("click", () => {
-    chips.forEach(c => {
-      c.classList.remove("is-active");
-      c.setAttribute("aria-selected", "false");
+renderPersonalProjects();
+renderWorkHighlights();
+
+// ===== Scroll reveal animation =====
+const revealEls = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
     });
-    chip.classList.add("is-active");
-    chip.setAttribute("aria-selected", "true");
+  }, { threshold: 0.12 });
 
-    const filter = chip.getAttribute("data-filter") || "all";
-    renderProjects(filter);
-  });
-});
-
-// Initial render
-renderProjects("all");
+  revealEls.forEach(el => revealObserver.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add("is-visible"));
+}

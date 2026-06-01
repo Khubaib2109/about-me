@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://khubaib2109.github.io/about-me/" />
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <!-- Version: actual compact experience tiles; generic Skills section removed -->
+  <!-- Version: refined portfolio v2; smaller headings; equal project cards; grouped experience; actuarial pathway progress -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -35,6 +35,7 @@
       <nav class="nav" aria-label="Primary navigation">
         <a class="nav-link" href="#projects">Projects</a>
         <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#actuary">Actuary pathway</a>
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#leadership">Leadership</a>
         <a class="nav-link" href="#contact">Contact</a>
@@ -123,7 +124,7 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Selected personal projects</p>
-          <h2 id="projects-title">Best builds in a masonry portfolio grid</h2>
+          <h2 id="projects-title">Best builds in a clean portfolio grid</h2>
           <p class="muted">
             A curated mix of personal web apps, games, data visualisations, and utilities. Repo buttons point to confirmed GitHub repositories; demo buttons are included for static projects with an actual web entry point.
           </p>
@@ -144,18 +145,86 @@
           <p class="eyebrow">Compact experience tiles</p>
           <h2 id="experience-title">Separate snapshots of my experience</h2>
           <p class="muted">
-            Each tile keeps a role, project, or leadership experience separate, but trims the text so the page feels like a portfolio rather than a pasted resume. Details are intentionally limited where appropriate.
+            Compact tiles for roles and major workstreams. Sub-projects are grouped under the relevant employer where appropriate, so the section does not repeat the same experience twice.
           </p>
         </div>
 
         <div class="work-grid" id="workGrid" aria-live="polite"></div>
       </div>
     </section>
+    <section class="section section-soft" id="actuary" aria-labelledby="actuary-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Actuarial pathway</p>
+          <h2 id="actuary-title">Progress toward Associate Actuary qualification</h2>
+          <p class="muted">
+            Confirmed progress is based on completed exemptions and requirements. ALM and CMP exams have been taken, with results pending.
+          </p>
+        </div>
+
+        <div class="pathway-card glass-card reveal">
+          <div class="pathway-summary">
+            <div>
+              <p class="pathway-label">Confirmed Associate progress</p>
+              <h3>8 of 10 Associate components complete</h3>
+              <p class="muted">100% subject to ALM and CMP results.</p>
+            </div>
+            <div class="pathway-percent" aria-label="80 percent confirmed progress">80%</div>
+          </div>
+
+          <div class="progress-track" aria-hidden="true">
+            <span class="progress-complete" style="width:80%"></span>
+            <span class="progress-pending" style="left:80%; width:20%"></span>
+          </div>
+
+          <div class="pathway-legend" aria-label="Progress legend">
+            <span><i class="legend-dot complete"></i>Completed / exempted</span>
+            <span><i class="legend-dot pending"></i>Exam taken, result pending</span>
+            <span><i class="legend-dot future"></i>Future Fellowship / Part III subjects</span>
+          </div>
+
+          <div class="pathway-grid">
+            <article class="pathway-step complete">
+              <span>Complete</span>
+              <h4>Foundation Program</h4>
+              <p>All 6 Foundation Program exemptions completed.</p>
+            </article>
+            <article class="pathway-step complete">
+              <span>Complete</span>
+              <h4>Actuarial Control Cycle</h4>
+              <p>Control Cycle requirement completed / exempted.</p>
+            </article>
+            <article class="pathway-step complete">
+              <span>Complete</span>
+              <h4>Data Science Principles</h4>
+              <p>Data analysis / DSP requirement completed / exempted.</p>
+            </article>
+            <article class="pathway-step pending">
+              <span>Pending result</span>
+              <h4>Asset Liability Management</h4>
+              <p>ALM exam taken; result pending.</p>
+            </article>
+            <article class="pathway-step pending">
+              <span>Pending result</span>
+              <h4>Communication, Modelling and Professionalism</h4>
+              <p>CMP exam taken; result pending.</p>
+            </article>
+            <article class="pathway-step future">
+              <span>Next after Associate</span>
+              <h4>Part III / Fellowship subjects</h4>
+              <p>Investments, Data, and ERM remaining after Associate qualification.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <section class="section" id="about" aria-labelledby="about-title">
       <div class="container about-grid">
         <div class="reveal">
           <p class="eyebrow">About</p>
-          <h2 id="about-title">Actuarial thinking, practical data work, and tools people can actually use</h2>
+          <h2 id="about-title">Actuarial thinking, practical data work, and useful tools</h2>
           <p class="lead">
             My interests sit at the intersection of actuarial analysis, data analytics, financial modelling, and practical tool-building.
           </p>

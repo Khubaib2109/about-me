@@ -1,4 +1,4 @@
-/* Version: actual compact experience tiles; generic Skills section removed */
+/* Version: refined portfolio v2; smaller headings; equal project cards; grouped experience; actuarial pathway progress */
 /* ===== Reset and base ===== */
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -105,7 +105,7 @@ body::before {
 }
 
 h1, h2, h3 { margin: 0; letter-spacing: -0.035em; }
-h1 { font-size: clamp(2.55rem, 6vw, 5.9rem); line-height: .96; }
+h1 { font-size: clamp(2rem, 4.6vw, 4.25rem); line-height: 1.03; }
 h2 { font-size: clamp(1.9rem, 3.1vw, 3.1rem); line-height: 1.04; }
 h3 { font-size: 1.12rem; line-height: 1.15; }
 p { margin: 0; }
@@ -455,7 +455,7 @@ p { margin: 0; }
   box-shadow: var(--shadow-soft);
 }
 .work-card {
-  min-height: 205px;
+  min-height: 218px;
   padding: 14px;
   display: grid;
   gap: 8px;
@@ -465,7 +465,7 @@ p { margin: 0; }
 .work-card:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.36); }
 .work-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .work-number { color: var(--accent-3); font-weight: 1000; letter-spacing: .08em; }
-.work-card p { color: var(--muted); font-weight: 650; font-size: .92rem; }
+.work-card p { color: var(--muted); font-weight: 650; font-size: .9rem; }
 .work-subtitle { color: var(--accent-2) !important; font-weight: 950 !important; margin-top: -4px; }
 .badge {
   display: inline-flex;
@@ -523,6 +523,153 @@ p { margin: 0; }
 }
 .timeline-card p:not(.tiny) { color: var(--muted); font-weight: 650; }
 
+
+/* ===== Actuarial pathway progress ===== */
+.section-soft {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(56,189,248,.12), transparent 24rem),
+    radial-gradient(circle at 90% 20%, rgba(37,99,235,.12), transparent 26rem);
+}
+.pathway-card {
+  padding: clamp(18px, 3vw, 26px);
+}
+.pathway-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.pathway-label {
+  color: var(--accent-2);
+  font-size: .8rem;
+  font-weight: 1000;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  margin: 0 0 6px;
+}
+.pathway-percent {
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  color: white;
+  font-size: 1.45rem;
+  font-weight: 1000;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 16px 36px rgba(37,99,235,.28);
+  flex: 0 0 auto;
+}
+.progress-track {
+  position: relative;
+  height: 16px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid var(--stroke);
+}
+[data-theme="light"] .progress-track { background: rgba(15,23,42,.06); }
+.progress-complete,
+.progress-pending {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.progress-complete {
+  left: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+.progress-pending {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(56,189,248,.45),
+    rgba(56,189,248,.45) 8px,
+    rgba(125,211,252,.20) 8px,
+    rgba(125,211,252,.20) 16px
+  );
+}
+.pathway-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 13px 0 18px;
+  color: var(--muted);
+  font-weight: 800;
+  font-size: .9rem;
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 999px;
+  margin-right: 6px;
+}
+.legend-dot.complete { background: var(--accent-2); }
+.legend-dot.pending { background: #f59e0b; }
+.legend-dot.future { background: rgba(148,163,184,.9); }
+.pathway-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px) {
+  .pathway-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1060px) {
+  .pathway-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.pathway-step {
+  min-height: 148px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.055);
+}
+[data-theme="light"] .pathway-step { background: rgba(15,23,42,.035); }
+.pathway-step span {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 8px;
+  margin-bottom: 9px;
+  font-size: .72rem;
+  font-weight: 1000;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+.pathway-step.complete span {
+  color: #e0f2fe;
+  background: rgba(56,189,248,.22);
+  border: 1px solid rgba(56,189,248,.34);
+}
+.pathway-step.pending span {
+  color: #fff7ed;
+  background: rgba(245,158,11,.24);
+  border: 1px solid rgba(245,158,11,.36);
+}
+.pathway-step.future span {
+  color: var(--text);
+  background: rgba(148,163,184,.16);
+  border: 1px solid rgba(148,163,184,.28);
+}
+.pathway-step h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  line-height: 1.18;
+}
+.pathway-step p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 650;
+  font-size: .92rem;
+}
+@media (max-width: 640px) {
+  .pathway-summary { display: grid; }
+  .pathway-percent { width: 72px; height: 72px; border-radius: 20px; }
+}
+
+
 /* ===== Contact and footer ===== */
 .contact-section { padding-bottom: 54px; }
 .contact-card {
@@ -574,11 +721,11 @@ p { margin: 0; }
   align-items: start;
 }
 @media (min-width: 940px) {
-  .about-grid { grid-template-columns: minmax(0, 1fr) 430px; }
+  .about-grid { grid-template-columns: minmax(0, .95fr) minmax(360px, 430px); }
 }
 .about-grid .lead { margin: 14px 0 12px; }
 .about-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-.details-card { border-radius: var(--radius2); padding: 18px; }
+.details-card { border-radius: var(--radius-lg); padding: 18px; align-self: start; }
 .facts { display: grid; gap: 10px; margin-top: 14px; }
 .fact {
   padding: 11px;
@@ -592,3 +739,99 @@ p { margin: 0; }
 }
 .fact-k { color: var(--tiny); font-weight: 950; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; margin: 0; }
 .fact-v { color: var(--text); font-weight: 850; margin: 2px 0 0; }
+
+
+/* ===== Final visual fixes: equal project cards and repaired About details ===== */
+.masonry-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  grid-auto-rows: auto !important;
+  grid-auto-flow: row !important;
+  gap: 18px !important;
+}
+@media (min-width: 760px) {
+  .masonry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (min-width: 1080px) {
+  .masonry-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+.project-card,
+.project-large,
+.project-medium,
+.project-small {
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+.project-card {
+  min-height: 420px !important;
+  display: grid !important;
+  grid-template-rows: 154px 1fr !important;
+}
+.project-thumb {
+  min-height: 154px;
+}
+.project-body {
+  min-height: 0;
+}
+@media (max-width: 640px) {
+  .project-card {
+    min-height: auto !important;
+  }
+}
+
+#about .container.about-grid {
+  display: grid !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+@media (min-width: 960px) {
+  #about .container.about-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(340px, 430px) !important;
+  }
+}
+#about .details-card {
+  border-radius: var(--radius-lg) !important;
+  padding: 18px !important;
+  width: 100%;
+}
+#about .details-card h3 {
+  margin-bottom: 12px;
+}
+#about .facts {
+  display: grid !important;
+  gap: 10px !important;
+  margin-top: 0 !important;
+}
+#about .fact {
+  display: grid !important;
+  gap: 2px !important;
+  padding: 11px !important;
+  border-radius: 16px !important;
+  background: var(--surface-soft) !important;
+  border: 1px solid var(--stroke) !important;
+}
+#about .fact-k {
+  margin: 0 !important;
+  color: var(--tiny) !important;
+  font-size: .76rem !important;
+  font-weight: 1000 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .08em !important;
+}
+#about .fact-v {
+  margin: 0 !important;
+  color: var(--text) !important;
+  font-weight: 850 !important;
+  line-height: 1.35 !important;
+}
+
+@media (min-width: 760px) {
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (min-width: 1120px) {
+  .work-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}

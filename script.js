@@ -268,3 +268,4 @@ if ("IntersectionObserver" in window) {
 } else {
   revealEls.forEach(el => el.classList.add("is-visible"));
 }
+ 

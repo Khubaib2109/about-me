@@ -810,7 +810,7 @@ p { margin: 0; }
   background: var(--surface-soft) !important;
   border: 1px solid var(--stroke) !important;
 }
-#about .fact-k {
+#about .fact-k { 
   margin: 0 !important;
   color: var(--tiny) !important;
   font-size: .76rem !important;

@@ -1,4 +1,4 @@
-/* Version: refined portfolio v2; smaller headings; equal project cards; grouped experience; actuarial pathway progress */
+/* Version: role-level experience cards; KPMG workstreams consolidated; readable actuarial progress labels */
 // ===== Theme =====
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
@@ -103,28 +103,14 @@ const workHighlights = [
   {
     title: "KPMG actuarial consulting",
     subtitle: "Actuarial Consultant and Vacationer",
-    desc: "Quantitative analysis, financial modelling, dashboards, model review support, and stakeholder reporting. Project work has included healthcare and aged care analytics, climate risk dashboards, private hospital indexation, banking audit analytics, infrastructure work, and government-sector analysis.",
+    desc: "Quantitative analysis, financial modelling, dashboards, model review support, research, and stakeholder reporting across healthcare, aged care, financial services, infrastructure, and government-sector work. Selected workstreams include an administration cost study, transmission network analysis, climate risk dashboards, private hospital indexation, and banking audit analytics.",
     note: "KPMG",
-    stack: ["R", "Excel", "Power BI", "SAS", "Health", "Climate", "Banking", "Infrastructure"]
-  },
-  {
-    title: "Administration cost study",
-    subtitle: "Major analytics workstream",
-    desc: "Surveying, data preparation, Power Query workflows, Excel modelling, R analysis, and Power BI reporting to support administration cost analysis.",
-    note: "Details limited",
-    stack: ["R", "Excel", "Power BI", "Power Query", "Surveying"]
-  },
-  {
-    title: "Transmission network analysis",
-    subtitle: "Major analytics workstream",
-    desc: "Prepared, interrogated, and communicated transmission-network analysis outputs using R and Excel.",
-    note: "Details limited",
-    stack: ["R", "Excel", "Network analysis", "Reporting"]
+    stack: ["R", "Excel", "Power BI", "SAS", "Power Query", "Surveying", "Health", "Climate", "Banking", "Infrastructure"]
   },
   {
     title: "APS 5 Data Analyst",
     subtitle: "Department of Education",
-    desc: "Developed financial and costing models for school funding allocations, budget planning, and policy analysis. Work included enrolment, retention and disability-growth projections, plus school funding dashboards for executive and delivery-team users.",
+    desc: "Developed financial and costing models for school funding allocations, budget planning, policy analysis, and operational decision-making. Work included enrolment, retention and disability-growth projections, plus school funding dashboards for executive and delivery-team users.",
     note: "Government",
     stack: ["Excel", "R", "Power BI", "Costing", "Forecasting", "Dashboards"]
   },
@@ -268,4 +254,3 @@ if ("IntersectionObserver" in window) {
 } else {
   revealEls.forEach(el => el.classList.add("is-visible"));
 }
- 
